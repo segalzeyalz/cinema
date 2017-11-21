@@ -1,5 +1,5 @@
 .Wrapper {
-    grid-row: 3 / 11 ;
+    grid-row: 2 / 11 ;
     grid-column: 4 / 13  ;
     display: grid;
     grid-template-columns: repeat(4, 0.25fr);
