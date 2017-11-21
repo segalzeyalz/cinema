@@ -7,7 +7,7 @@ class Card extends Component {
     return (
       <div className={css.item}>
         <h2>{title}</h2>
-        <img width={"100%"} src={imageUrl} />
+        <img alt="" width={"100%"} src={imageUrl} />
       </div>  
     );
   }
