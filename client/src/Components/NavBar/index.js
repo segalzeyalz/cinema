@@ -13,7 +13,7 @@ class NavBar extends Component {
       let {data} = this.props;
       let listToUpdate = [];      
       for(let i=0; i<data.length; i++){
-        listToUpdate = [...listToUpdate, <h3>{data[i].title}</h3>];
+        listToUpdate = [...listToUpdate, <h3 className={css.link}>{data[i].title}</h3>];
       }
       this.setState({list: listToUpdate});    
     }
@@ -21,7 +21,11 @@ class NavBar extends Component {
           let {list} = this.state;    
           return (
             <div className={css.NavBar}>
-              {list}
+            {list}
+              <div className={css.loginCont}>
+                <h4 className={css.link}>Login</h4>
+                <h4 className={css.link}>Log Out</h4>
+              </div>
             </div>
           );
         }
