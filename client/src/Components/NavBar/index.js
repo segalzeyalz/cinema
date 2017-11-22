@@ -47,9 +47,6 @@ NavBar.defaultProps = {
     },{
       title: "Fantasy",
       link: "/Fantasy"
-    },{
-      title: "Fantasy",
-      link: "/Fantasy"
     }
 ]
 };

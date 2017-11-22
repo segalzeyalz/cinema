@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import css from './Gallery.css';
-import Card from './Card/Card'
+import Movie from './Movie'
 
 class Gallery extends Component {
   constructor(props){
@@ -15,7 +15,7 @@ class Gallery extends Component {
     let {data} = this.props;
     let listToUpdate = [];      
     for(let i=0; i<data.length; i++){
-      listToUpdate = [listToUpdate, <Card data={data[i]} />]
+      listToUpdate = [listToUpdate, <Movie data={data[i]} />]
     }
     this.setState({list: listToUpdate});    
   }
