@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import MovieImage from './MovieImage';
+import MovieInfo from './MovieInfo';
 import css from './Movie.css';
 
 class Movie extends Component {
@@ -17,10 +18,12 @@ class Movie extends Component {
   }
   render() {
     let {showImage, showInfo} = this.state;
+    let {data} = this.props;
     return (
-      <div>
-        <MovieImage onHover={this.handleHover} showImage={showImage} data={this.props.data} />
-      </div>  
+          <div onMouseEnter={this.handleHover} onMouseLeave={this.handleHover}>
+            <MovieImage showImage={showImage} data={data} />
+            <MovieInfo showInfo={showInfo} data={data}/> 
+        </div>
     );
   }
 }

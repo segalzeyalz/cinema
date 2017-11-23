@@ -1,11 +1,12 @@
-import React from 'react'
+import React from 'react';
+import css from './Movie.css';
 
-export const Component = (props) => {
+export const MovieInfo = (props) => {
   return(
-    <div>
-      {props.children}
+    <div className={props.showInfo? css.show:css.hide}>
+      <h3>{props.data.title}</h3>
     </div>
   )
 }
 
-export default Component
+export default MovieInfo
