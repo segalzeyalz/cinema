@@ -8,21 +8,22 @@ class Movie extends Component {
     super(props);
     this.state = {
       showImage: true,
-      showInfo: false
+      showInfoNum: false
     }
-    this.handleHover = this.handleHover.bind(this);
+    this.handleFocus = this.handleFocus.bind(this);
   }
-  handleHover(){
-    let {showImage, showInfo} = this.state;
-    this.setState({showImage: !showImage, showInfo:!showInfo});
+  handleFocus(){
+    let {showImage} = this.state;
+    let showInfoNum =this.props.num;
+    this.setState({showImage: !showImage, showInfoNum:showInfoNum});
   }
   render() {
-    let {showImage, showInfo} = this.state;
-    let {data} = this.props;
+    let {showImage, showInfoNum} = this.state;
+    let {data, num} = this.props;
     return (
-          <div onMouseEnter={this.handleHover} onMouseLeave={this.handleHover}>
+          <div className={css.clickableDiv} onClick={this.handleFocus}>
             <MovieImage showImage={showImage} data={data} />
-            <MovieInfo showInfo={showInfo} data={data}/> 
+            <MovieInfo num={num} showInfoNum={showInfoNum} data={data}/> 
         </div>
     );
   }

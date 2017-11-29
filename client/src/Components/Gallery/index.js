@@ -15,7 +15,7 @@ class Gallery extends Component {
     let {data} = this.props;
     let listToUpdate = [];      
     for(let i=0; i<data.length; i++){
-      listToUpdate = [listToUpdate, <Movie key={i} data={data[i]} />]
+      listToUpdate = [listToUpdate, <Movie key={i} num={i} data={data[i]} />]
     }
     this.setState({list: listToUpdate});    
   }

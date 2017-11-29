@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import css from './Movie.css';
 
 class MovieImage extends Component {
-
   render() {
     let {imageUrl} = this.props.data;
     let {showImage} = this.props;
