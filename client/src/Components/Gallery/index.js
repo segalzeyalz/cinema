@@ -7,15 +7,21 @@ class Gallery extends Component {
   constructor(props){
     super(props);
     this.state = {
-      list: []
+      list: [],
+      selected: false
     }
+    this.handleClick = this.handleClick.bind(this);
+  }
+  handleClick(num){
+    this.setState({selected:num});
   }
 
   async componentWillMount() {
     let {data} = this.props;
+    let {selected} = this.state;
     let listToUpdate = [];      
     for(let i=0; i<data.length; i++){
-      listToUpdate = [listToUpdate, <Movie key={i} num={i} data={data[i]} />]
+      listToUpdate = [listToUpdate, <Movie key={i} num={i} data={data[i]} selected={selected} onClick={this.handleClick}/>]
     }
     this.setState({list: listToUpdate});    
   }
