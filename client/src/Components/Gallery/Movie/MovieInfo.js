@@ -1,4 +1,3 @@
-
 import React from 'react';
 import css from './Movie.css';
 import YoutubePlay from './YoutubePlay';
