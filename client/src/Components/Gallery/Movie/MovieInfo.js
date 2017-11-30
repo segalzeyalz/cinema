@@ -6,7 +6,7 @@ export const MovieInfo = (props) => {
     <div className={props.selected? css.show:css.hide}>
     {props.selected && 
       <div>
-        <i className="fa fa-times" aria-hidden="true"></i>      
+        <i onClick={props.onCancel} className="fa fa-times" aria-hidden="true"></i>      
         <h3>{props.data.title}</h3>
         <i className="fa fa-youtube-play" aria-hidden="true"></i>          
         <YoutubePlay videoId={props.data.videoId}/>

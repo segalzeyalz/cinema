@@ -14,20 +14,23 @@ class Gallery extends Component {
     this.handleDeselectImageClick = this.handleDeselectImageClick.bind(this);
     
   }
-  changeSelect(list ,num, selected){
+  changeSelect(list ,num, selected, makeFalse){
     let {data} = this.props;
-    if(selected!==false){
       list[selected]=
-        <Movie key={selected} num={selected} data={data[selected]} selected={num} onClick={()=>this.handleSelectImageClick(selected)}/>
-    }
+        <Movie key={selected} num={selected} data={data[selected]} selected={makeFalse===true? false: num}
+         onClick={()=>this.handleSelectImageClick(selected)}
+         onCancel = {()=>this.handleDeselectImageClick(selected)}
+         />
     list[num]=
-      <Movie key={num} num={num} data={data[num]} selected={num} onClick={()=>this.handleSelectImageClick(num)}/>
+      <Movie key={num} num={num} data={data[num]} 
+      selected={makeFalse? false: num} onClick={()=>this.handleSelectImageClick(num)}
+        onCancel = {()=>this.handleDeselectImageClick(num)}
+        />
     this.setState({list:list});
   }
   handleDeselectImageClick(num){
     let {list, selected} = this.state;
-    this.setState({selected:false});
-    this.changeSelect(list,num, selected);
+    this.changeSelect(list,num, selected, true);
   }
 
   handleSelectImageClick(num){ 
@@ -45,7 +48,9 @@ class Gallery extends Component {
         num={i}
         data={data[i]}
         selected={selected}
-        onClick={()=>this.handleSelectImageClick(i)}/>]
+        onClick={()=>this.handleSelectImageClick(i)}
+        onCancel = {()=>this.handleDeselectImageClick(i)}
+        />]
     }
     this.setState({list: listToUpdate});    
   }
