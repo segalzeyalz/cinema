@@ -6,7 +6,7 @@ class MovieImage extends Component {
     let {notSelected} = this.props;
     let {imageUrl} = this.props.data;
     return (
-        <div>      
+        <div className={css.clickableDiv}>      
           {notSelected && 
             <img alt="" width={"100%"} src={imageUrl} />}
         </div>
