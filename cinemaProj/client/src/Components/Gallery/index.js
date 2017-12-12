@@ -8,29 +8,36 @@ class Gallery extends Component {
     super(props);
     this.state = {
       list: [],
-      selected: false
+      selected: false,
+      mounted: false
     }
     this.handleSelectImageClick = this.handleSelectImageClick.bind(this);
     this.handleDeselectImageClick = this.handleDeselectImageClick.bind(this);
     
   }
-  changeSelect(list ,num, selected, makeFalse){
+  changeSelect(list ,num, selected){
     let {data} = this.props;
       list[selected]=
-        <Movie key={selected} num={selected} data={data[selected]} selected={makeFalse===true? false: num}
+        <Movie key={selected} num={selected} data={data[selected]} selected={num}
          onClick={()=>this.handleSelectImageClick(selected)}
          onCancel = {()=>this.handleDeselectImageClick(selected)}
          />
     list[num]=
       <Movie key={num} num={num} data={data[num]} 
-      selected={makeFalse? false: num} onClick={()=>this.handleSelectImageClick(num)}
+      selected={num} onClick={()=>this.handleSelectImageClick(num)}
         onCancel = {()=>this.handleDeselectImageClick(num)}
         />
-    this.setState({list:list});
+        this.setState({selected: num, list:list});
   }
   handleDeselectImageClick(num){
-    let {list, selected} = this.state;
-    this.changeSelect(list,num, selected, true);
+    let {list} = this.state;
+    let {data} = this.props;
+    list[num]=
+    <Movie key={num} num={num} data={data[num]} selected={false}
+     onClick={()=>this.handleSelectImageClick(num)}
+     onCancel = {()=>this.handleDeselectImageClick(num)}
+     />
+     this.setState({selected:false, list: list});
   }
 
   handleSelectImageClick(num){ 
@@ -40,6 +47,7 @@ class Gallery extends Component {
   }
 
   async componentWillMount() {
+    if(!this.state.mounted){
     let {data} = this.props;
     let {selected} = this.state;
     let listToUpdate = [];      
@@ -52,8 +60,9 @@ class Gallery extends Component {
         onCancel = {()=>this.handleDeselectImageClick(i)}
         />]
     }
-    this.setState({list: listToUpdate});    
+    this.setState({list: listToUpdate, mounted:true});    
   }
+}
   
   render() {
     let {list} = this.state;    
