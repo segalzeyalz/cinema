@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import style from './App.css';
 import NavBar from '../NavBar';
 import Gallery from '../Gallery';
-import Footer from '../Footer/Footer';
 // import API from '../../logics/API';
 
 class App extends Component {
@@ -22,7 +21,6 @@ class App extends Component {
             }
         ]}/>
         <Gallery />
-        <Footer/>
       </div>
     );
   }
