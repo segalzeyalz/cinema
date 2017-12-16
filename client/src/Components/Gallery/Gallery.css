@@ -1,0 +1,14 @@
+.Wrapper {
+    grid-row: 2 / 11 ;
+    grid-column: 1 / 13  ;
+    display: grid;
+    grid-template-columns: repeat(4, 0.25fr);
+    grid-template-rows:  repeat(8, 0.125fr);
+    grid-gap:10px;
+}
+
+.gallery_container{
+    text-align: center;
+    background: yellow;
+}
+  

@@ -1,0 +1,27 @@
+.NavBar{
+    grid-row: 1 ;
+    grid-column: 1 / 13  ;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-content: stretch;
+    align-items: center;
+    border-radius: 2px;
+    position: relative;
+    font-weight: 900;
+    background: linear-gradient(to right, rgb(21, 153, 87), rgb(21, 87, 153));
+  }
+  .link{
+    cursor: pointer;
+    transition: .3s color;
+  }
+  .link:hover{
+    color:white;
+    cursor: pointer;
+  }
+  @media only screen and (max-width: 650px) {
+    .NavBar{
+      flex-direction: column;    
+    } 
+  }  
