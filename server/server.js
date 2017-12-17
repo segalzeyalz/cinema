@@ -1,4 +1,7 @@
 // server.js
+const path = require('path')
+// const server = require(path.join('app', 'server.js')) 
+
 const jsonServer = require('json-server')
 const server = jsonServer.create()
 const router = jsonServer.router('db.json')
