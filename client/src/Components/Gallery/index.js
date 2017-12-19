@@ -8,8 +8,7 @@ class Gallery extends Component {
     super(props);
     this.state = {
       list: [],
-      selected: false,
-      mounted: false
+      selected: false
     }
     this.handleSelectImageClick = this.handleSelectImageClick.bind(this);
     this.handleDeselectImageClick = this.handleDeselectImageClick.bind(this);
@@ -47,7 +46,6 @@ class Gallery extends Component {
   }
 
   async componentWillMount() {
-    if(!this.state.mounted){
     let {data} = this.props;
     let {selected} = this.state;
     let listToUpdate = [];      
@@ -60,8 +58,7 @@ class Gallery extends Component {
         onCancel = {()=>this.handleDeselectImageClick(i)}
         />]
     }
-    this.setState({list: listToUpdate, mounted:true});    
-  }
+    this.setState({list: listToUpdate});    
 }
   
   render() {
